@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- ITranslator adapter for Azure AI Translator (REST v3). Only HttpClient, no SDK. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Voxa.Core\Voxa.Core.csproj" />
+  </ItemGroup>
+
+</Project>

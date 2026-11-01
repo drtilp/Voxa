@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Client of the Voxa inference server (src/Voxa.Api): remote speech recognition and translation.
+       Only HttpClient and ClientWebSocket, no UI - the WPF app wires it to the audio source. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Voxa.Remote.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Voxa.Core\Voxa.Core.csproj" />
+  </ItemGroup>
+
+</Project>

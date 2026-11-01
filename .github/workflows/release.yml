@@ -1,0 +1,68 @@
+# Release: push a tag "v0.2.0" -> tests, installer, GitHub Release with Voxa-Setup.exe.
+#   git tag -a v0.2.0 -m "What's new" && git push origin v0.2.0
+# The release is created in this (private) repository with the workflow's own GITHUB_TOKEN, no secret needed.
+# The app's updater reads it with the token entered in Voxa Settings → Updates.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  # Manual run from the Actions tab: builds the installer as an artifact, no release.
+  workflow_dispatch:
+
+permissions:
+  contents: write # create the release and upload the installer
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      # Model tests skip themselves (no models on the runner); the rest must pass before anything is published.
+      - name: Test
+        run: dotnet test --solution Voxa.sln -c Release
+
+      - name: Install Inno Setup
+        shell: pwsh
+        run: |
+          if (-not (Test-Path "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe")) {
+            choco install innosetup -y --no-progress
+          }
+
+      - name: Build installer
+        shell: pwsh
+        run: |
+          $version = if ('${{ github.ref_type }}' -eq 'tag') { '${{ github.ref_name }}'.TrimStart('v') } else { '' }
+          ./installer/build.ps1 -Version $version
+
+      - name: Upload installer (manual runs)
+        if: github.ref_type != 'tag'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Voxa-Setup
+          path: artifacts/installer/Voxa-Setup.exe
+
+      # Notes = message of the annotated tag (+ the generated list of commits below it).
+      - name: Release notes from the tag
+        if: github.ref_type == 'tag'
+        shell: pwsh
+        run: |
+          git fetch --force origin "refs/tags/${{ github.ref_name }}:refs/tags/${{ github.ref_name }}"
+          $notes = git tag -l --format='%(contents)' '${{ github.ref_name }}'
+          if (-not "$notes".Trim()) { $notes = 'Voxa ${{ github.ref_name }}' }
+          Set-Content -Path release-notes.md -Value $notes -Encoding utf8
+
+      - name: Publish GitHub Release
+        if: github.ref_type == 'tag'
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Voxa ${{ github.ref_name }}
+          body_path: release-notes.md
+          generate_release_notes: true
+          files: artifacts/installer/Voxa-Setup.exe
+          fail_on_unmatched_files: true

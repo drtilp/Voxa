@@ -1,0 +1,29 @@
+<Window x:Class="Voxa.Wpf.Views.ConfirmDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Voxa"
+        Width="400"
+        SizeToContent="Height"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        Background="{StaticResource WindowBrush}"
+        Foreground="{StaticResource TextBrush}"
+        FontFamily="{StaticResource UiFont}"
+        FontSize="14"
+        Icon="/Assets/Voxa.ico"
+        UseLayoutRounding="True">
+
+    <StackPanel Margin="24,20,24,20">
+        <TextBlock x:Name="HeadlineText" FontFamily="{StaticResource DisplayFont}" FontSize="18" FontWeight="SemiBold"
+                   TextWrapping="Wrap" />
+        <TextBlock x:Name="MessageText" Foreground="{StaticResource SubtleTextBrush}" TextWrapping="Wrap" Margin="0,8,0,0" />
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <!-- Cancel is the default: Enter doesn't delete by accident -->
+            <Button Content="Cancel" MinWidth="88" IsCancel="True" IsDefault="True" />
+            <Button x:Name="ConfirmButton" MinWidth="88" Margin="8,0,0,0" FontWeight="SemiBold" Click="OnConfirm"
+                    Background="{StaticResource RecordBrush}" Foreground="White" BorderBrush="{StaticResource RecordBrush}" />
+        </StackPanel>
+    </StackPanel>
+</Window>

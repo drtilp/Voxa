@@ -1,0 +1,15 @@
+<Project>
+  <!-- Shared by every project under this folder. TargetFramework stays per project (WPF needs -windows). -->
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <!-- Release: debug symbols inside each DLL, not as .pdb files next to it (publish output, installer).
+       Stack traces of a crash still show file names and line numbers. -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+</Project>

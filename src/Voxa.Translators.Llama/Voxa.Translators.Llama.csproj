@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- ITranslator adapter for local LLM translation models (GGUF) via LLamaSharp (llama.cpp). -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Voxa.Core\Voxa.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LLamaSharp" />
+    <!-- Native backends: Vulkan needs only the GPU driver (CUDA backend would need the CUDA 12 runtime
+         installed and adds 0.5 GB); CPU is the fallback. LLamaSharp picks the first one that loads. -->
+    <PackageReference Include="LLamaSharp.Backend.Cpu" />
+    <PackageReference Include="LLamaSharp.Backend.Vulkan.Windows" />
+  </ItemGroup>
+
+</Project>

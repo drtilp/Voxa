@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "Voxa": {
+      "commandName": "Project"
+    },
+    "Voxa Dev": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "VOXA_CHANNEL": "Dev"
+      }
+    }
+  }
+}

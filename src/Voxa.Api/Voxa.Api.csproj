@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- Remote inference server: the same pipeline as the app, behind a WebSocket (see Voxa.Core.Remote). -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Voxa.Api.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Voxa.Core\Voxa.Core.csproj" />
+    <ProjectReference Include="..\Voxa.Engines.SherpaOnnx\Voxa.Engines.SherpaOnnx.csproj" />
+    <ProjectReference Include="..\Voxa.Translators.Llama\Voxa.Translators.Llama.csproj" />
+  </ItemGroup>
+
+  <!-- GPU image (dotnet publish -p:VoxaGpu=true): llama.cpp CUDA backend; LLamaSharp prefers it over the CPU one
+       when it finds CUDA (CUDA_VERSION is set by the nvidia/cuda base image). sherpa-onnx gets its CUDA build in the
+       Dockerfile, there is no NuGet package for it. -->
+  <ItemGroup Condition="'$(VoxaGpu)' == 'true'">
+    <PackageReference Include="LLamaSharp.Backend.Cuda12.Linux" />
+  </ItemGroup>
+
+</Project>
