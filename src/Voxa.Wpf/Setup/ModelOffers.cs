@@ -19,7 +19,7 @@ public enum ModelSource
     /// <summary>The user's own file or folder.</summary>
     Custom,
 
-    /// <summary>Runs on a server (Voxa Cloud, DeepL, Azure); nothing to download.</summary>
+    /// <summary>Runs on a server (remote model, DeepL, Azure); nothing to download.</summary>
     Remote,
 
     /// <summary>The role is switched off (e.g. no translation).</summary>
@@ -72,7 +72,7 @@ public static class ModelOffers
         new("custom-asr", ModelRole.SpeechRecognition, ModelSource.Custom,
             "Own model…", "A sherpa-onnx model folder on this PC (encoder/decoder .onnx + tokens.txt)."),
         new("cloud-asr", ModelRole.SpeechRecognition, ModelSource.Remote,
-            "Parakeet TDT 0.6B v3 (cloud)", "Recognition runs on our server, nothing to download. Needs a sign-in."),
+            "Parakeet TDT 0.6B v3 (Remote model)", "Recognition runs on a server, nothing to download. Needs a sign-in."),
 
         // Translation
         new("hy-mt2-1.8b", ModelRole.Translation, ModelSource.Download,
@@ -87,7 +87,7 @@ public static class ModelOffers
             "Azure Translator", "Your own Azure key (F0: 2M characters / month). Enter it in Settings.",
             Translator: TranslatorKind.Azure),
         new("cloud-translation", ModelRole.Translation, ModelSource.Remote,
-            "Hy-MT2 1.8B (cloud)", "Translation runs on our server, nothing to download. Needs a sign-in.",
+            "Hy-MT2 1.8B (Remote model)", "Translation runs on a server, nothing to download. Needs a sign-in.",
             Translator: TranslatorKind.Cloud),
         new("custom-translation", ModelRole.Translation, ModelSource.Custom,
             "Own model…", "A .gguf translation model on this PC.", Translator: TranslatorKind.Local),

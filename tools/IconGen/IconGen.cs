@@ -1,4 +1,4 @@
-// Generates src/Voxa.Wpf/Assets/Voxa.ico: the "F" tile from the tray, in all sizes Windows asks for.
+// Generates src/Voxa.Wpf/Assets/Voxa.ico: the "V" tile from the tray, in all sizes Windows asks for.
 // Run from the repo root:  dotnet run tools/IconGen/IconGen.cs -- src/Voxa.Wpf/Assets/Voxa.ico
 #:property TargetFramework=net10.0-windows
 #:property UseWindowsForms=true
@@ -41,7 +41,7 @@ Console.WriteLine($"{output}: {string.Join(", ", sizes)} px");
 
 static byte[] RenderPng(int size)
 {
-    // Same design as TrayIcon used to draw at 32 px: dark rounded tile, light bold "F".
+    // Same design as TrayIcon used to draw at 32 px: dark rounded tile, light bold "V".
     float s = size / 32f;
     using var bitmap = new Bitmap(size, size, PixelFormat.Format32bppArgb);
     using (var g = Graphics.FromImage(bitmap))
@@ -57,7 +57,7 @@ static byte[] RenderPng(int size)
         using var font = new Font("Segoe UI", 19 * s, FontStyle.Bold, GraphicsUnit.Pixel);
         using var text = new SolidBrush(Color.FromArgb(255, 228, 228, 231));
         using var format = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
-        g.DrawString("F", font, text, new RectangleF(0, 1 * s, size, size), format);
+        g.DrawString("V", font, text, new RectangleF(0, 1 * s, size, size), format);
     }
 
     using var stream = new MemoryStream();

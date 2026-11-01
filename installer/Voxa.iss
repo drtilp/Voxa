@@ -50,9 +50,125 @@ UsedUserAreasWarning=no
 Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "czech"; MessagesFile: "compiler:Languages\Czech.isl"
 
+[CustomMessages]
+; Every text Setup shows itself, in both languages of [Languages]. Texts of Windows' own pages come from the .isl files.
+english.AutostartTask=Start Voxa when Windows starts
+czech.AutostartTask=Spouštět Voxa při startu Windows
+english.VoxaRunning=Voxa is running. Close it (tray icon → Exit) and click Retry.
+czech.VoxaRunning=Voxa právě běží. Ukončete ji (ikona v oznamovací oblasti → Exit) a klikněte na Opakovat.
+
+english.RuntimeDownloading=Downloading the .NET %1 Desktop Runtime from Microsoft (about 60 MB)…
+czech.RuntimeDownloading=Stahuje se .NET %1 Desktop Runtime od Microsoftu (asi 60 MB)…
+english.RuntimeDownloadFailed=The .NET Desktop Runtime could not be downloaded: %1%n%nCheck the internet connection, or install it from https://dotnet.microsoft.com/download/dotnet/%2.0 and run Setup again.
+czech.RuntimeDownloadFailed=Nepodařilo se stáhnout .NET Desktop Runtime: %1%n%nZkontrolujte připojení k internetu, nebo ho nainstalujte z https://dotnet.microsoft.com/download/dotnet/%2.0 a spusťte instalaci znovu.
+english.RuntimeInstalling=Installing the .NET %1 Desktop Runtime…
+czech.RuntimeInstalling=Instaluje se .NET %1 Desktop Runtime…
+english.RuntimeCannotStart=The .NET Desktop Runtime installer could not be started.
+czech.RuntimeCannotStart=Instalátor .NET Desktop Runtime se nepodařilo spustit.
+english.RuntimeFailed=The .NET Desktop Runtime installation failed (exit code %1).
+czech.RuntimeFailed=Instalace .NET Desktop Runtime selhala (kód chyby %1).
+
+; ---------- Model pages ----------
+english.AsrTitle=Speech recognition
+czech.AsrTitle=Rozpoznávání řeči
+english.AsrDescription=Which models should turn the audio into text?
+czech.AsrDescription=Které modely mají převádět zvuk na text?
+english.AsrHelp=Tick one or more models.%nLocal = the model is downloaded from Hugging Face into files on this PC after the installation, when Voxa starts for the first time (progress in Voxa Settings → Models). Remote model = it runs on a server, nothing is downloaded.%nVoxa starts with the first ticked model (an own model goes first); you can switch to the others in Settings → Models.
+czech.AsrHelp=Zaškrtněte jeden nebo více modelů.%nLokální = model se po dokončení instalace, při prvním spuštění Voxa, stáhne z Hugging Face do souborů v tomto počítači (průběh v nastavení Voxa → Models). Vzdálený model = běží na serveru, nic se nestahuje.%nVoxa začne s prvním zaškrtnutým modelem (vlastní model má přednost), na ostatní se přepnete v nastavení → Models.
+english.AsrParakeet=Parakeet TDT 0.6B v3  (local, ≈ 670 MB, recommended)
+czech.AsrParakeet=Parakeet TDT 0.6B v3  (lokální, ≈ 670 MB, doporučeno)
+english.AsrWhisper=Whisper large-v3 turbo  (local, ≈ 1.0 GB, 99 languages, slower)
+czech.AsrWhisper=Whisper large-v3 turbo  (lokální, ≈ 1,0 GB, 99 jazyků, pomalejší)
+english.AsrRemote=Parakeet TDT 0.6B v3  (Remote model, no download)
+czech.AsrRemote=Parakeet TDT 0.6B v3  (vzdálený model, bez stahování)
+english.AsrOwn=Own model  (a sherpa-onnx folder on this PC)
+czech.AsrOwn=Vlastní model  (složka sherpa-onnx v tomto počítači)
+english.Later=Select and download later
+czech.Later=Vybrat a stáhnout později
+
+english.AsrOwnTitle=Own speech recognition model
+czech.AsrOwnTitle=Vlastní model pro rozpoznávání řeči
+english.WhereIsModel=Where is the model?
+czech.WhereIsModel=Kde je model?
+english.AsrOwnHelp=Select the folder with the encoder / decoder .onnx files and tokens.txt.
+czech.AsrOwnHelp=Vyberte složku se soubory encoder / decoder (.onnx) a tokens.txt.
+
+english.TrTitle=Translation
+czech.TrTitle=Překlad
+english.TrDescription=How should Voxa translate?
+czech.TrDescription=Čím má Voxa překládat?
+english.TrHelp=Finished sentences are translated into your language. Tick one or more; with nothing ticked Voxa only shows the transcript. Local models are downloaded after the installation, remote models and API keys need no download.
+czech.TrHelp=Dokončené věty se přeloží do vašeho jazyka. Zaškrtněte jeden nebo více; bez zaškrtnutí Voxa zobrazí jen přepis. Lokální modely se stáhnou po instalaci, vzdálené modely a API klíče nic nestahují.
+english.TrHy=Hy-MT2 1.8B  (local on the GPU, ≈ 1.9 GB, recommended)
+czech.TrHy=Hy-MT2 1.8B  (lokální na GPU, ≈ 1,9 GB, doporučeno)
+english.TrHyRemote=Hy-MT2 1.8B  (Remote model, no download)
+czech.TrHyRemote=Hy-MT2 1.8B  (vzdálený model, bez stahování)
+english.TrDeepL=DeepL API  (your own key, entered in Voxa Settings)
+czech.TrDeepL=DeepL API  (váš vlastní klíč, zadá se v nastavení Voxa)
+english.TrAzure=Azure Translator  (your own key, entered in Voxa Settings)
+czech.TrAzure=Azure Translator  (váš vlastní klíč, zadá se v nastavení Voxa)
+english.TrOwn=Own model  (a .gguf file on this PC)
+czech.TrOwn=Vlastní model  (soubor .gguf v tomto počítači)
+english.TrOwnTitle=Own translation model
+czech.TrOwnTitle=Vlastní překladový model
+english.TrOwnHelp=Select a .gguf translation model.
+czech.TrOwnHelp=Vyberte překladový model ve formátu .gguf.
+english.ModelFile=Model file:
+czech.ModelFile=Soubor modelu:
+english.GgufFilter=GGUF model (*.gguf)|*.gguf|All files|*.*
+czech.GgufFilter=Model GGUF (*.gguf)|*.gguf|Všechny soubory|*.*
+
+english.VadTitle=Voice activity detection
+czech.VadTitle=Detekce hlasové aktivity
+english.VadDescription=Which model should find where sentences start and end?
+czech.VadDescription=Který model má určit, kde věty začínají a končí?
+english.VadHelp=Needed for local speech recognition. Keep the default unless you know why.
+czech.VadHelp=Potřebné pro lokální rozpoznávání řeči. Ponechte výchozí volbu, pokud nemáte důvod ji měnit.
+english.VadSilero=Silero VAD  (≈ 2 MB, recommended)
+czech.VadSilero=Silero VAD  (≈ 2 MB, doporučeno)
+english.VadOwn=Own model  (an .onnx file on this PC)
+czech.VadOwn=Vlastní model  (soubor .onnx v tomto počítači)
+english.VadOwnTitle=Own voice activity detection model
+czech.VadOwnTitle=Vlastní model detekce hlasové aktivity
+english.VadOwnHelp=Select a VAD .onnx model.
+czech.VadOwnHelp=Vyberte model VAD ve formátu .onnx.
+english.OnnxFilter=ONNX model (*.onnx)|*.onnx|All files|*.*
+czech.OnnxFilter=Model ONNX (*.onnx)|*.onnx|Všechny soubory|*.*
+
+english.SelectFolder=Select an existing folder.
+czech.SelectFolder=Vyberte existující složku.
+english.SelectGguf=Select an existing .gguf file.
+czech.SelectGguf=Vyberte existující soubor .gguf.
+english.SelectOnnx=Select an existing .onnx file.
+czech.SelectOnnx=Vyberte existující soubor .onnx.
+english.SelectAtLeastOne=Tick at least one model, or "Select and download later".
+czech.SelectAtLeastOne=Zaškrtněte alespoň jeden model, nebo „Vybrat a stáhnout později“.
+
+; ---------- "Ready to install" summary and uninstall ----------
+english.MemoModelsUnchanged=Models: unchanged (update)
+czech.MemoModelsUnchanged=Modely: beze změny (aktualizace)
+english.MemoRuntime=.NET %1 Desktop Runtime: will be downloaded and installed
+czech.MemoRuntime=.NET %1 Desktop Runtime: bude stažen a nainstalován
+english.MemoModels=Models:
+czech.MemoModels=Modely:
+english.MemoAsr=Speech recognition:
+czech.MemoAsr=Rozpoznávání řeči:
+english.MemoTr=Translation:
+czech.MemoTr=Překlad:
+english.MemoVad=Voice activity detection:
+czech.MemoVad=Detekce hlasové aktivity:
+english.MemoNone=none
+czech.MemoNone=žádný
+english.MemoLater=Selected and downloaded later, in Voxa Settings → Models
+czech.MemoLater=Výběr a stažení později, v nastavení Voxa → Models
+english.MemoDownload=Local models are downloaded from Hugging Face after the installation (progress in Voxa Settings → Models).
+czech.MemoDownload=Lokální modely se po instalaci stáhnou z Hugging Face (průběh v nastavení Voxa → Models).
+english.UninstallModels=Also delete the models in %1?
+czech.UninstallModels=Smazat také modely ve složce %1?
+
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
-Name: "autostart"; Description: "Start Voxa when Windows starts"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+Name: "autostart"; Description: "{cm:AutostartTask}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Dirs]
 ; Users may write here without admin: models are downloaded / added later from the app.
@@ -140,8 +256,7 @@ begin
   Result := WaitForVoxaToExit(Timeout);
   while not Result do
   begin
-    if SuppressibleMsgBox('Voxa is running. Close it (tray icon → Exit) and click Retry.',
-      mbError, MB_RETRYCANCEL, IDCANCEL) = IDCANCEL then
+    if SuppressibleMsgBox(CustomMessage('VoxaRunning'), mbError, MB_RETRYCANCEL, IDCANCEL) = IDCANCEL then
       Exit;
     Result := WaitForVoxaToExit(2000);
   end;
@@ -184,7 +299,7 @@ end;
 procedure InitializeRuntimeDownload;
 begin
   RuntimeDownloadPage := CreateDownloadPage('.NET Desktop Runtime',
-    'Downloading the .NET ' + DotNetMajor + ' Desktop Runtime from Microsoft (about 60 MB)…', nil);
+    FmtMessage(CustomMessage('RuntimeDownloading'), [DotNetMajor]), nil);
 end;
 
 <event('NextButtonClick')>
@@ -203,10 +318,8 @@ begin
       RuntimeDownloaded := True;
     except
       if not RuntimeDownloadPage.AbortedByUser then
-        // (#13#10 must not start a line: ISPP would read it as a preprocessor directive)
-        SuppressibleMsgBox('The .NET Desktop Runtime could not be downloaded: ' + GetExceptionMessage + #13#10#13#10 +
-          'Check the internet connection, or install it from https://dotnet.microsoft.com/download/dotnet/' +
-          DotNetMajor + '.0 and run Setup again.', mbCriticalError, MB_OK, IDOK);
+        SuppressibleMsgBox(FmtMessage(CustomMessage('RuntimeDownloadFailed'), [GetExceptionMessage, DotNetMajor]),
+          mbCriticalError, MB_OK, IDOK);
       Result := False;
     end;
   finally
@@ -222,14 +335,14 @@ begin
   Result := '';
   if not RuntimeDownloaded then
     Exit;
-  WizardForm.PreparingLabel.Caption := 'Installing the .NET ' + DotNetMajor + ' Desktop Runtime…';
+  WizardForm.PreparingLabel.Caption := FmtMessage(CustomMessage('RuntimeInstalling'), [DotNetMajor]);
   if not Exec(ExpandConstant('{tmp}\' + DotNetInstallerFile), '/install /quiet /norestart', '',
     SW_SHOW, ewWaitUntilTerminated, ResultCode) then
-    Result := 'The .NET Desktop Runtime installer could not be started.'
+    Result := CustomMessage('RuntimeCannotStart')
   else if ResultCode = 3010 then
     NeedsRestart := True // installed, Windows wants a restart
   else if ResultCode <> 0 then
-    Result := 'The .NET Desktop Runtime installation failed (exit code ' + IntToStr(ResultCode) + ').';
+    Result := FmtMessage(CustomMessage('RuntimeFailed'), [IntToStr(ResultCode)]);
 end;
 
 #if ModelSelectionPage
@@ -237,19 +350,26 @@ var
   AsrPage, TranslationPage, VadPage: TInputOptionWizardPage;
   AsrCustomPage: TInputDirWizardPage;
   TranslationCustomPage, VadCustomPage: TInputFileWizardPage;
-  DownloadPage: TDownloadWizardPage;
-  DownloadCount: Integer;
   WriteManifestAfterInstall: Boolean;
 
-{ Ids must match ModelOffers.cs in the app. Index = order of the radio buttons below. }
+{ Ids must match ModelOffers.cs in the app. Index = order of the items below. The item after the models of the
+  speech recognition page is "Select and download later". }
+const
+  AsrCount = 4;
+  AsrCustomIndex = 3;
+  AsrLaterIndex = 4;
+  TranslationCount = 5;
+  TranslationCustomIndex = 4;
+  VadCustomIndex = 1;
+
 function AsrId(Index: Integer): String;
 begin
   case Index of
     0: Result := 'parakeet-tdt-0.6b-v3';
     1: Result := 'whisper-large-v3-turbo';
-    2: Result := 'custom-asr';
+    2: Result := 'cloud-asr';
   else
-    Result := 'cloud-asr';
+    Result := 'custom-asr';
   end;
 end;
 
@@ -257,12 +377,11 @@ function TranslationId(Index: Integer): String;
 begin
   case Index of
     0: Result := 'hy-mt2-1.8b';
-    1: Result := 'deepl';
-    2: Result := 'azure';
-    3: Result := 'cloud-translation';
-    4: Result := 'custom-translation';
+    1: Result := 'cloud-translation';
+    2: Result := 'deepl';
+    3: Result := 'azure';
   else
-    Result := 'no-translation';
+    Result := 'custom-translation';
   end;
 end;
 
@@ -271,54 +390,62 @@ begin
   if Index = 0 then Result := 'silero-vad' else Result := 'custom-vad';
 end;
 
-const
-  AsrCustomIndex = 2;
-  TranslationCustomIndex = 4;
-  VadCustomIndex = 1;
+// "Select and download later" excludes the models and the other way round.
+procedure AsrClickCheck(Sender: TObject);
+var
+  Clicked, I: Integer;
+begin
+  Clicked := AsrPage.CheckListBox.ItemIndex;
+  if Clicked < 0 then
+    Exit;
+  if Clicked = AsrLaterIndex then
+  begin
+    if AsrPage.Values[AsrLaterIndex] then
+      for I := 0 to AsrCount - 1 do
+        AsrPage.Values[I] := False;
+  end
+  else if AsrPage.Values[Clicked] then
+    AsrPage.Values[AsrLaterIndex] := False;
+end;
 
 procedure InitializeWizard;
 begin
   AsrPage := CreateInputOptionPage(wpSelectTasks,
-    'Speech recognition', 'Which model should turn the audio into text?',
-    'The recommended model is preselected. Everything can be changed later in Voxa Settings.', True, False);
-  AsrPage.Add('Parakeet TDT 0.6B v3  (local, ≈ 670 MB, recommended)');
-  AsrPage.Add('Whisper large-v3 turbo  (local, ≈ 1.0 GB, 99 languages, slower)');
-  AsrPage.Add('Own model  (a sherpa-onnx folder on this PC)');
-  AsrPage.Add('Voxa Cloud  (coming soon)');
-  AsrPage.SelectedValueIndex := 0;
+    CustomMessage('AsrTitle'), CustomMessage('AsrDescription'), CustomMessage('AsrHelp'), False, False);
+  AsrPage.Add(CustomMessage('AsrParakeet'));
+  AsrPage.Add(CustomMessage('AsrWhisper'));
+  AsrPage.Add(CustomMessage('AsrRemote'));
+  AsrPage.Add(CustomMessage('AsrOwn'));
+  AsrPage.Add(CustomMessage('Later'));
+  AsrPage.Values[0] := True;
+  AsrPage.CheckListBox.OnClickCheck := @AsrClickCheck;
 
   AsrCustomPage := CreateInputDirPage(AsrPage.ID,
-    'Own speech recognition model', 'Where is the model?',
-    'Select the folder with the encoder / decoder .onnx files and tokens.txt.', False, '');
+    CustomMessage('AsrOwnTitle'), CustomMessage('WhereIsModel'), CustomMessage('AsrOwnHelp'), False, '');
   AsrCustomPage.Add('');
 
   TranslationPage := CreateInputOptionPage(AsrCustomPage.ID,
-    'Translation', 'How should Voxa translate?',
-    'Finished sentences are translated into your language.', True, False);
-  TranslationPage.Add('Hy-MT2 1.8B  (local on the GPU, ≈ 1.9 GB, recommended)');
-  TranslationPage.Add('DeepL API  (your own key, entered in Voxa Settings)');
-  TranslationPage.Add('Azure Translator  (your own key, entered in Voxa Settings)');
-  TranslationPage.Add('Voxa Cloud  (coming soon)');
-  TranslationPage.Add('Own model  (a .gguf file on this PC)');
-  TranslationPage.Add('No translation  (only the transcript)');
-  TranslationPage.SelectedValueIndex := 0;
+    CustomMessage('TrTitle'), CustomMessage('TrDescription'), CustomMessage('TrHelp'), False, False);
+  TranslationPage.Add(CustomMessage('TrHy'));
+  TranslationPage.Add(CustomMessage('TrHyRemote'));
+  TranslationPage.Add(CustomMessage('TrDeepL'));
+  TranslationPage.Add(CustomMessage('TrAzure'));
+  TranslationPage.Add(CustomMessage('TrOwn'));
+  TranslationPage.Values[0] := True;
 
   TranslationCustomPage := CreateInputFilePage(TranslationPage.ID,
-    'Own translation model', 'Where is the model?', 'Select a .gguf translation model.');
-  TranslationCustomPage.Add('Model file:', 'GGUF model (*.gguf)|*.gguf|All files|*.*', '.gguf');
+    CustomMessage('TrOwnTitle'), CustomMessage('WhereIsModel'), CustomMessage('TrOwnHelp'));
+  TranslationCustomPage.Add(CustomMessage('ModelFile'), CustomMessage('GgufFilter'), '.gguf');
 
   VadPage := CreateInputOptionPage(TranslationCustomPage.ID,
-    'Voice activity detection', 'Which model should find where sentences start and end?',
-    'Keep the default unless you know why.', True, False);
-  VadPage.Add('Silero VAD  (≈ 2 MB, recommended)');
-  VadPage.Add('Own model  (an .onnx file on this PC)');
+    CustomMessage('VadTitle'), CustomMessage('VadDescription'), CustomMessage('VadHelp'), True, False);
+  VadPage.Add(CustomMessage('VadSilero'));
+  VadPage.Add(CustomMessage('VadOwn'));
   VadPage.SelectedValueIndex := 0;
 
   VadCustomPage := CreateInputFilePage(VadPage.ID,
-    'Own voice activity detection model', 'Where is the model?', 'Select a VAD .onnx model.');
-  VadCustomPage.Add('Model file:', 'ONNX model (*.onnx)|*.onnx|All files|*.*', '.onnx');
-
-  DownloadPage := CreateDownloadPage(SetupMessage(msgWizardPreparing), 'Downloading the selected models…', nil);
+    CustomMessage('VadOwnTitle'), CustomMessage('WhereIsModel'), CustomMessage('VadOwnHelp'));
+  VadCustomPage.Add(CustomMessage('ModelFile'), CustomMessage('OnnxFilter'), '.onnx');
 end;
 
 // Upgrade: the models were chosen at the first install (install.json is kept) -> don't ask again.
@@ -333,74 +460,89 @@ begin
     (PageID = TranslationCustomPage.ID) or (PageID = VadPage.ID) or (PageID = VadCustomPage.ID);
 end;
 
-function ShouldSkipPage(PageID: Integer): Boolean;
+function ChoseLater: Boolean;
 begin
-  // Nested ifs, not "and": {app} is unknown before the directory page, ModelsChosenBefore must not run there.
-  if IsModelPage(PageID) then
-    if ModelsChosenBefore then
-    begin
-      Result := True;
-      Exit;
-    end;
-  Result :=
-    ((PageID = AsrCustomPage.ID) and (AsrPage.SelectedValueIndex <> AsrCustomIndex)) or
-    ((PageID = TranslationCustomPage.ID) and (TranslationPage.SelectedValueIndex <> TranslationCustomIndex)) or
-    ((PageID = VadCustomPage.ID) and (VadPage.SelectedValueIndex <> VadCustomIndex));
+  Result := AsrPage.Values[AsrLaterIndex];
 end;
 
-{ The app downloads the chosen models on its first start (ids from install.json, see ModelDownloads.cs),
-  so nothing is added here and the download page is skipped. Kept for a possible download in the installer. }
-procedure AddModelDownloads(Id: String);
+// The voice activity model is needed by every local speech recognition model; a remote one has its own.
+function LocalAsrTicked: Boolean;
 begin
-  // TODO(next step): every file of the model, downloaded into the temp folder and moved to models\ in ssPostInstall, e.g.
-  //   DownloadPage.Add('https://huggingface.co/<org>/<repo>/resolve/main/encoder.int8.onnx', 'encoder.int8.onnx', '<sha256>');
-  //   DownloadCount := DownloadCount + 1;
+  Result := not ChoseLater and (AsrPage.Values[0] or AsrPage.Values[1] or AsrPage.Values[AsrCustomIndex]);
+end;
+
+function ShouldSkipPage(PageID: Integer): Boolean;
+begin
+  Result := False;
+  if not IsModelPage(PageID) then
+    Exit;
+  // Nested ifs, not "and": {app} is unknown before the directory page, ModelsChosenBefore must not run there.
+  if ModelsChosenBefore then
+  begin
+    Result := True;
+    Exit;
+  end;
+  if PageID = AsrPage.ID then
+    Exit;
+  if ChoseLater then
+  begin
+    Result := True;
+    Exit;
+  end;
+  Result :=
+    ((PageID = AsrCustomPage.ID) and not AsrPage.Values[AsrCustomIndex]) or
+    ((PageID = TranslationCustomPage.ID) and not TranslationPage.Values[TranslationCustomIndex]) or
+    ((PageID = VadPage.ID) and not LocalAsrTicked) or
+    ((PageID = VadCustomPage.ID) and (not LocalAsrTicked or (VadPage.SelectedValueIndex <> VadCustomIndex)));
+end;
+
+function AnyAsrOptionTicked: Boolean;
+var
+  I: Integer;
+begin
+  Result := False;
+  for I := 0 to AsrLaterIndex do
+    if AsrPage.Values[I] then
+      Result := True;
 end;
 
 function NextButtonClick(CurPageID: Integer): Boolean;
 begin
   Result := True;
 
-  if (CurPageID = AsrCustomPage.ID) and not DirExists(AsrCustomPage.Values[0]) then
+  if (CurPageID = AsrPage.ID) and not AnyAsrOptionTicked then
   begin
-    MsgBox('Select an existing folder.', mbError, MB_OK);
+    MsgBox(CustomMessage('SelectAtLeastOne'), mbError, MB_OK);
+    Result := False;
+  end
+  else if (CurPageID = AsrCustomPage.ID) and not DirExists(AsrCustomPage.Values[0]) then
+  begin
+    MsgBox(CustomMessage('SelectFolder'), mbError, MB_OK);
     Result := False;
   end
   else if (CurPageID = TranslationCustomPage.ID) and not FileExists(TranslationCustomPage.Values[0]) then
   begin
-    MsgBox('Select an existing .gguf file.', mbError, MB_OK);
+    MsgBox(CustomMessage('SelectGguf'), mbError, MB_OK);
     Result := False;
   end
   else if (CurPageID = VadCustomPage.ID) and not FileExists(VadCustomPage.Values[0]) then
   begin
-    MsgBox('Select an existing .onnx file.', mbError, MB_OK);
+    MsgBox(CustomMessage('SelectOnnx'), mbError, MB_OK);
     Result := False;
-  end
-  else if (CurPageID = wpReady) and not ModelsChosenBefore then
-  begin
-    DownloadPage.Clear;
-    DownloadCount := 0;
-    AddModelDownloads(AsrId(AsrPage.SelectedValueIndex));
-    AddModelDownloads(TranslationId(TranslationPage.SelectedValueIndex));
-    AddModelDownloads(VadId(VadPage.SelectedValueIndex));
-    if DownloadCount > 0 then
-    begin
-      DownloadPage.Show;
-      try
-        try
-          DownloadPage.Download;
-        except
-          if DownloadPage.AbortedByUser then
-            Log('Model download aborted by the user.')
-          else
-            SuppressibleMsgBox(AddPeriod(GetExceptionMessage), mbCriticalError, MB_OK, IDOK);
-          Result := False;
-        end;
-      finally
-        DownloadPage.Hide;
-      end;
-    end;
   end;
+end;
+
+// The ticked captions of a page, one per line (the summary on the "Ready to install" page).
+function TickedCaptions(Page: TInputOptionWizardPage; Count: Integer; Indent, NewLine: String): String;
+var
+  I: Integer;
+begin
+  Result := '';
+  for I := 0 to Count - 1 do
+    if Page.Values[I] then
+      Result := Result + Indent + Page.CheckListBox.ItemCaption[I] + NewLine;
+  if Result = '' then
+    Result := Indent + CustomMessage('MemoNone') + NewLine;
 end;
 
 function UpdateReadyMemo(Space, NewLine, MemoUserInfoInfo, MemoDirInfo, MemoTypeInfo,
@@ -408,20 +550,27 @@ function UpdateReadyMemo(Space, NewLine, MemoUserInfoInfo, MemoDirInfo, MemoType
 begin
   if ModelsChosenBefore then
   begin
-    Result := MemoDirInfo + NewLine + NewLine + 'Models: unchanged (update)';
+    Result := MemoDirInfo + NewLine + NewLine + CustomMessage('MemoModelsUnchanged');
     if MemoTasksInfo <> '' then
       Result := Result + NewLine + NewLine + MemoTasksInfo;
     Exit;
   end;
   Result := MemoDirInfo + NewLine + NewLine;
   if not IsDesktopRuntimeInstalled then
-    Result := Result + '.NET ' + DotNetMajor + ' Desktop Runtime: will be downloaded and installed' + NewLine + NewLine;
-  Result := Result +
-    'Models:' + NewLine +
-    Space + 'Speech recognition: ' + AsrPage.CheckListBox.ItemCaption[AsrPage.SelectedValueIndex] + NewLine +
-    Space + 'Translation: ' + TranslationPage.CheckListBox.ItemCaption[TranslationPage.SelectedValueIndex] + NewLine +
-    Space + 'Voice activity: ' + VadPage.CheckListBox.ItemCaption[VadPage.SelectedValueIndex] + NewLine +
-    Space + '(downloading is not implemented yet: put the model files into ' + ExpandConstant('{app}\models') + ')';
+    Result := Result + FmtMessage(CustomMessage('MemoRuntime'), [DotNetMajor]) + NewLine + NewLine;
+  Result := Result + CustomMessage('MemoModels') + NewLine;
+  if ChoseLater then
+    Result := Result + Space + CustomMessage('MemoLater') + NewLine
+  else
+  begin
+    Result := Result +
+      Space + CustomMessage('MemoAsr') + NewLine + TickedCaptions(AsrPage, AsrCount, Space + Space, NewLine) +
+      Space + CustomMessage('MemoTr') + NewLine + TickedCaptions(TranslationPage, TranslationCount, Space + Space, NewLine);
+    if LocalAsrTicked then
+      Result := Result + Space + CustomMessage('MemoVad') + NewLine +
+        Space + Space + VadPage.CheckListBox.ItemCaption[VadPage.SelectedValueIndex] + NewLine;
+    Result := Result + NewLine + CustomMessage('MemoDownload');
+  end;
   if MemoTasksInfo <> '' then
     Result := Result + NewLine + NewLine + MemoTasksInfo;
 end;
@@ -433,26 +582,62 @@ begin
   Result := '"' + Value + '"';
 end;
 
-function CustomValue(Selected, CustomIndex: Integer; Value: String): String;
+function JsonBool(Value: Boolean): String;
 begin
-  if Selected = CustomIndex then Result := Value else Result := '';
+  if Value then Result := 'true' else Result := 'false';
+end;
+
+function CustomValue(Selected: Boolean; Value: String): String;
+begin
+  if Selected then Result := Value else Result := '';
+end;
+
+function AsrIds: String;
+var
+  I: Integer;
+begin
+  Result := '';
+  for I := 0 to AsrCount - 1 do
+    if AsrPage.Values[I] then
+    begin
+      if Result <> '' then Result := Result + ', ';
+      Result := Result + JsonString(AsrId(I));
+    end;
+  Result := '[' + Result + ']';
+end;
+
+function TranslationIds: String;
+var
+  I: Integer;
+begin
+  Result := '';
+  for I := 0 to TranslationCount - 1 do
+    if TranslationPage.Values[I] then
+    begin
+      if Result <> '' then Result := Result + ', ';
+      Result := Result + JsonString(TranslationId(I));
+    end;
+  Result := '[' + Result + ']';
 end;
 
 // The app applies install.json once, on its first start (InstallManifest.cs). Setup runs elevated and maybe
 // as another account, so it can't write the user's own settings in %APPDATA%.
+// "Later" = nothing chosen, nothing to download. Translation [] = no translation. Vad '' = no local recognition.
 procedure WriteInstallManifest;
 var
-  Json: String;
+  Json, Vad: String;
 begin
+  if LocalAsrTicked then Vad := VadId(VadPage.SelectedValueIndex) else Vad := '';
   Json :=
     '{' + #13#10 +
     '  "ModelsFolder": ' + JsonString(ExpandConstant('{app}\models')) + ',' + #13#10 +
-    '  "Asr": ' + JsonString(AsrId(AsrPage.SelectedValueIndex)) + ',' + #13#10 +
-    '  "AsrPath": ' + JsonString(CustomValue(AsrPage.SelectedValueIndex, AsrCustomIndex, AsrCustomPage.Values[0])) + ',' + #13#10 +
-    '  "Translation": ' + JsonString(TranslationId(TranslationPage.SelectedValueIndex)) + ',' + #13#10 +
-    '  "TranslationPath": ' + JsonString(CustomValue(TranslationPage.SelectedValueIndex, TranslationCustomIndex, TranslationCustomPage.Values[0])) + ',' + #13#10 +
-    '  "Vad": ' + JsonString(VadId(VadPage.SelectedValueIndex)) + ',' + #13#10 +
-    '  "VadPath": ' + JsonString(CustomValue(VadPage.SelectedValueIndex, VadCustomIndex, VadCustomPage.Values[0])) + #13#10 +
+    '  "Later": ' + JsonBool(ChoseLater) + ',' + #13#10 +
+    '  "Asr": ' + AsrIds + ',' + #13#10 +
+    '  "AsrPath": ' + JsonString(CustomValue(AsrPage.Values[AsrCustomIndex], AsrCustomPage.Values[0])) + ',' + #13#10 +
+    '  "Translation": ' + TranslationIds + ',' + #13#10 +
+    '  "TranslationPath": ' + JsonString(CustomValue(TranslationPage.Values[TranslationCustomIndex], TranslationCustomPage.Values[0])) + ',' + #13#10 +
+    '  "Vad": ' + JsonString(Vad) + ',' + #13#10 +
+    '  "VadPath": ' + JsonString(CustomValue(LocalAsrTicked and (VadPage.SelectedValueIndex = VadCustomIndex), VadCustomPage.Values[0])) + #13#10 +
     '}' + #13#10;
   if not SaveStringToFile(ExpandConstant('{app}\install.json'), Json, False) then
     Log('Could not write install.json');
@@ -475,6 +660,6 @@ var
 begin
   Models := ExpandConstant('{app}\models');
   if (CurUninstallStep = usPostUninstall) and DirExists(Models) and not UninstallSilent then
-    if MsgBox('Also delete the models in ' + Models + '?', mbConfirmation, MB_YESNO or MB_DEFBUTTON2) = IDYES then
+    if MsgBox(FmtMessage(CustomMessage('UninstallModels'), [Models]), mbConfirmation, MB_YESNO or MB_DEFBUTTON2) = IDYES then
       DelTree(Models, True, True, True);
 end;
